@@ -1,22 +1,24 @@
 # Enter your procedural solution here!
-require 'pry'
-
-
-rng1 = (1..1000)
-arr1 = rng1.to_a
-
-def sum_multiples_of_3_and_5(arr)
-    three_and_five_arr = arr.select do | num |
-        num%3 == 0 || num%5 == 0
+def collect_multiples(limit)
+    counter = 1
+    multiples = []
+    while counter < limit
+        if (counter % 3 == 0) || (counter % 5 == 0)
+            multiples << counter
+        end
+        counter += 1
     end
-    total = 0
-    three_and_five_arr.each do | number |
-        total += number
+    multiples
+end
+def sum_multiples(limit)
+    multiples=collect_multiples(limit)
+    sum = 0
+    multiples.each do |multiples|
+        sum += multiples
     end
-    total
-
+    sum
 end
 
 
-binding.pry
-0
+
+
